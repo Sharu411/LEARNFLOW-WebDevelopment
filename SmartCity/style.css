@@ -1,0 +1,257 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#mainContent {
+    background-image: url('city_bg.jpg');
+    background-size: cover;
+    padding: 50px;
+    color: #fff;
+}
+
+.mainc-home {
+    background-image: url('Assets/insideimg.jpg');
+    background-repeat: no-repeat;
+    background-position: unset;
+    background-size: cover;
+    color: white;
+    border-radius: 10px;
+}
+
+.mainc {
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.178);
+    height: 70dvh;
+    margin-top: -50px;
+    margin-bottom: 60px;
+}
+
+.grey-qo-regular {
+    font-family: "Grey Qo", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+footer {
+    margin-top: 50px;
+}
+
+#loginModal .modal-content {
+    background-color: #f8f9fa;
+}
+
+#loginModal .form-control {
+    margin-bottom: 15px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgb(0, 0, 0, 0.5);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Hover Effect */
+.card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.card:hover .card-details {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.card-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s, transform 0.3s ease;
+    transform: translateY(-100%);
+}
+
+.card-details h5 {
+    margin-top: 30px;
+}
+
+.card-details p {
+    font-size: 1rem;
+}
+
+.content {
+    text-align: center;
+    padding-top: 15%;
+    padding-left: 5%;
+    width: 50%;
+}
+
+.con {
+    padding-top: 5%;
+    width: 50%;
+}
+
+.img-fluid {
+    width: 100%;
+    border-radius: 0 30% 0 30%;
+}
+
+#userName {
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.features-section {
+    background-color: rgba(128, 128, 128, 0.096);
+    padding: 50px 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    color: black;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.f-img {
+    border-radius: 50% 50%;
+    height: 200px;
+    width: 200px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.feature-card:hover {
+    background-color: #f7f7f7;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card i {
+    font-size: 50px;
+    color: #3498db;
+    margin-bottom: 15px;
+}
+
+.feature-card h5 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.feature {
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .feature-card {
+        margin-bottom: 20px;
+    }
+
+    .f-img {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainc {
+        flex-wrap: wrap;
+        height: 80dvh;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .con {
+        width: 100%;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    #loginBtn,
+    #registerBtn {
+        height: 20px;
+        width: auto;
+        font-size: 7px;
+    }
+
+    .img-fluid {
+        height: 300px;
+    }
+
+    #userName {
+        font-weight: 400;
+        font-size: 25px;
+    }
+}
+
+.card:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+h2 {
+    color: black;
+}
+
+.mainc-home h1,
+.mainc-home p {
+    color: white;
+    background-color: rgba(128, 128, 128, 0.377);
+}
+
+.Contacth {
+    color: black;
+}
+
+#dashboard {
+    height: 58dvh;
+}

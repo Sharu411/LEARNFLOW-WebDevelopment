@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart City Management</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Grey+Qo&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="bg-primary text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="grey-qo-regular">Smart City Management</h1>
+            <div id="userSection">
+                <button class="btn btn-light" id="loginBtn">Login</button>
+                <button class="btn btn-light" id="registerBtn">Register</button>
+                <span id="userName" class="d-none grey-qo-regular"></span> <!-- Display username here -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Registration and Login Modal -->
+    <div id="loginModal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Page -->
+    <main id="mainContent">
+        <section class="container mt-5">
+            <div class="mainc">
+                <div class="content">
+                    <h1 class="grey-qo-regular">Welcome to Smart City Management</h1>
+                    <p>This platform helps to manage city services efficiently using real-time data.</p>
+                </div>
+                <div class="col-md-6 con">
+                    <img src="Assets/mainbg.jpg" alt="Smart City" class="img-fluid">
+                </div>
+            </div>
+            <!-- Card Container Section -->
+            <div class="container">
+                <div class="row card-container">
+                    <!-- Traffic Card -->
+                    <div class="col-lg-4 col-md-6 col-sm-12" style="flex: 1;">
+                        <div class="card">
+                            <img src="Assets/traffic.jpg" class="card-img-top" alt="Traffic">
+                            <div class="card-body">
+                                <h5 class="card-title">Traffic Management</h5>
+                            </div>
+                            <div class="card-details">
+                                <h5>Traffic Overview</h5><br />
+                                <p>Manage and monitor real-time traffic flow across the city, including congestion
+                                    levels, accidents, and road conditions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Weather Card -->
+                    <div class="col-lg-4 col-md-6 col-sm-12" style="flex: 1;">
+                        <div class="card">
+                            <img src="Assets/weather.jpg" class="card-img-top" alt="Weather">
+                            <div class="card-body">
+                                <h5 class="card-title">Weather Monitoring</h5>
+                            </div>
+                            <div class="card-details">
+                                <h5>Weather Data</h5><br />
+                                <p>Track the real-time weather conditions of the city including temperature, humidity,
+                                    and wind speed.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Waste Management Card -->
+                    <div class="col-lg-4 col-md-6 col-sm-12" style="flex: 1;">
+                        <div class="card">
+                            <img src="Assets/waste.jpg" class="card-img-top" alt="Waste">
+                            <div class="card-body">
+                                <h5 class="card-title">Waste Management</h5>
+                            </div>
+                            <div class="card-details">
+                                <h5>Waste Management System</h5><br />
+                                <p>Monitor the waste collection, recycling efforts, and disposal systems within the city
+                                    to maintain cleanliness.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- Features Section -->
+        <div class="row mt-5 feature">
+            <div class="col-12 text-center">
+                <h2>Features</h2>
+                <p>Explore the key features of our Smart City.</p>
+            </div>
+        </div>
+
+        <div class="row features-section">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <!-- <img src="Assets/RTAnalytics.jpg" class="card-img-top f-img" alt="Traffic"> -->
+                    <i class="bi bi-bar-chart"></i>
+                    <h5>Real-Time Analytics</h5>
+                    <p>Get real-time insights into traffic, utilities, and environmental data.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <!-- <img src="Assets/Security Integration.jpg" class="card-img-top f-img" alt="Traffic"> -->
+                    <i class="bi bi-shield-check"></i>
+                    <h5>Security Integration</h5>
+                    <p>Monitor surveillance systems and ensure the safety of citizens.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <!-- <img src="Assets/Location Tracking.jpg" class="card-img-top f-img" alt="Traffic"> -->
+                    <i class="bi bi-geo-alt"></i>
+                    <h5>Location Tracking</h5>
+                    <p>Track live locations for transport and emergency services.</p>
+                </div>
+            </div>
+            <!-- </div>
+  
+      <div class="row features-section mt-4"> -->
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <!-- <img src="Assets/Weather Updates.jpg" class="card-img-top f-img" alt="Traffic"> -->
+                    <i class="bi bi-cloud-sun"></i>
+                    <h5>Weather Updates</h5>
+                    <p>Stay informed with real-time weather conditions and forecasts.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <!-- <img src="Assets/Energy Optimization.jpg" class="card-img-top f-img" alt="Traffic"> -->
+                    <i class="bi bi-lightbulb"></i>
+                    <h5>Energy Optimization</h5>
+                    <p>Monitor and optimize energy usage for sustainable living.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <!-- <img src="Assets/Performance Metrics.jpg" class="card-img-top" alt="Traffic"> -->
+                    <i class="bi bi-graph-up-arrow"></i>
+                    <h5>Performance Metrics</h5>
+                    <p>Track performance metrics for better city management.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- Contact Information Section -->
+        <div class="container-fluid bg-light mt-5 py-5">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h2 class="contacth">Contact Information</h2>
+                    <p class="text-muted">Feel free to reach out to us with any questions or concerns.</p>
+                </div>
+            </div>
+
+            <div class="row text-center mt-4">
+                <!-- Phone -->
+                <div class="col-md-4">
+                    <div class="contact-card">
+                        <i class="bi bi-telephone-fill text-primary" style="font-size: 2rem;"></i>
+                        <h5 class="mt-3 contacth">Phone</h5>
+                        <p class="text-muted">+1 (123) 456-7890</p>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="col-md-4">
+                    <div class="contact-card">
+                        <i class="bi bi-envelope-fill text-success" style="font-size: 2rem;"></i>
+                        <h5 class="mt-3 contacth">Email</h5>
+                        <p class="text-muted">support@smartcity.com</p>
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div class="col-md-4">
+                    <div class="contact-card">
+                        <i class="bi bi-geo-alt-fill text-danger" style="font-size: 2rem;"></i>
+                        <h5 class="mt-3 contacth">Address</h5>
+                        <p class="text-muted">123 Smart City Blvd, Techville, USA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Dashboard Page (hidden by default) -->
+    <div id="dashboard" class="container mt-5" style="display: none;">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Weather</a>
+                    <a href="#" class="list-group-item list-group-item-action">Traffic</a>
+                    <a href="#" class="list-group-item list-group-item-action">Waste</a>
+                    <a href="#" class="list-group-item list-group-item-action">Power</a>
+                    <a href="#" class="list-group-item list-group-item-action">About</a>
+                    <a href="home.html" class="list-group-item list-group-item-action">More details</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row features-section">
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="card-header text-dark">
+                                Environment Status
+                            </div>
+                            <div class="card-body">
+                                <p>Air Quality: <strong>Good</strong></p>
+                                <p>Weather: <strong>25°C,Sky</strong></p>
+                                <p>Pollution Level: <strong>Low Level</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Utilities -->
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="card-header text-dark">
+                                Utilities Status
+                            </div>
+                            <div class="card-body">
+                                <p>Water Supply: <strong>Normal</strong></p>
+                                <p>Electricity: <strong>Systems Operational</strong></p>
+                                <p>Gas Supply: <strong>Stable</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security -->
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="card-header text-dark">
+                                Security & Surveillance
+                            </div>
+                            <div class="card-body">
+                                <p>Crime Alert: <strong>None</strong></p>
+                                <p>CCTV Cameras: <strong>Operational</strong></p>
+                                <p>Emergency Status: <strong>No Emergencies</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white p-3 mt-5">
+        <div class="container text-center">
+            <p>&copy; 2024 Smart City Management. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.css"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

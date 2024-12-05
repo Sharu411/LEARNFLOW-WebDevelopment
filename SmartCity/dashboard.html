@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart City Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For charts -->
+  <style>
+    /* Global Styles */
+    body {
+      background-color: #f0f8ff;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container-fluid {
+      padding: 40px 15px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #2c3e50;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .card-header {
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .card-size {
+      height: 300px;
+      width: 300px;
+      margin: 10px;
+    }
+
+    .card-body {
+      font-size: 18px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Card Styles */
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card-body p {
+      margin: 15px 0;
+    }
+
+    /* Header Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Chart Animations */
+    @keyframes chartAnimation {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hover Effect for Cards */
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Card Color Variations */
+    .bg-primary {
+      background-color: #3498db !important;
+    }
+
+    .bg-success {
+      background-color: #2ecc71 !important;
+    }
+
+    .bg-warning {
+      background-color: #f39c12 !important;
+    }
+
+    .bg-danger {
+      background-color: #e74c3c !important;
+    }
+
+    .bg-info {
+      background-color: #1abc9c !important;
+    }
+
+    .bg-secondary {
+      background-color: #95a5a6 !important;
+    }
+
+    footer {
+      background: #212529;
+      /* Dark background */
+      color: #fff;
+      /* White text */
+    }
+
+    footer a {
+      color: #f8f9fa;
+      /* Slightly lighter white for links */
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer i {
+      margin-right: 8px;
+      /* Add spacing next to icons */
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .heading {
+        font-size: 20px;
+      }
+
+      .row {
+        margin-bottom: 10px;
+      }
+
+      .card-size {
+        width: 200px;
+        height: 300px;
+      }
+
+      .card-body {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="bg-primary text-white p-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="grey-qo-regular">Smart City Management</h1>
+      <div id="userSection">
+        <a href="home.html"><button class="btn btn-success">Go to Home</button></a>
+      </div>
+    </div>
+  </header>
+  <div class="mt-5 text-center">
+    <h1 class="heading">Smart City</h1>
+  </div>
+  <br />
+  <br />
+  <!-- Container -->
+  <div class="container">
+    <!-- Dashboard Overview -->
+    <div class="row card-container">
+      <!-- Traffic -->
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card bg-primary card-size">
+          <div class="card-header text-white">
+            Traffic Status
+          </div>
+          <div class="card-body">
+            <p>Real-Time Traffic: <strong>Moderate</strong></p>
+            <canvas id="trafficChart" class="mb-3"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Environment -->
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card bg-success card-size">
+          <div class="card-header text-white">
+            Environment Status
+          </div>
+          <div class="card-body">
+            <p>Air Quality: <strong>Good</strong></p>
+            <p>Weather: <strong>25°C, Clear Sky</strong></p>
+            <p>Pollution Level: <strong>Low</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Utilities -->
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card bg-warning card-size">
+          <div class="card-header text-dark">
+            Utilities Status
+          </div>
+          <div class="card-body">
+            <p>Water Supply: <strong>Normal</strong></p>
+            <p>Electricity: <strong>All Systems Operational</strong></p>
+            <p>Gas Supply: <strong>Stable</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security -->
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card bg-danger card-size">
+          <div class="card-header text-white">
+            Security & Surveillance
+          </div>
+          <div class="card-body">
+            <p>Crime Alert: <strong>None</strong></p>
+            <p>CCTV Cameras: <strong>Operational</strong></p>
+            <p>Emergency Status: <strong>No Emergencies</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card bg-info">
+          <div class="card-header text-white">
+            Traffic Analytics
+          </div>
+          <div class="card-body">
+            <canvas id="trafficAnalyticsChart" class="animated-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card bg-secondary">
+          <div class="card-header text-white">
+            Utilities Analytics
+          </div>
+          <div class="card-body">
+            <canvas id="utilitiesAnalyticsChart" class="animated-chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br />
+  <!-- Footer Section -->
+  <footer class="bg-dark text-white py-5">
+    <div class="container">
+      <div class="row">
+        <!-- Contact Information -->
+        <div class="col-md-4 mb-4">
+          <h5>Contact Us</h5>
+          <p><i class="bi bi-geo-alt-fill"></i> 123 Smart City Blvd, Techville, 56789</p>
+          <p><i class="bi bi-envelope-fill"></i> contact@smartcity.com</p>
+          <p><i class="bi bi-telephone-fill"></i> +1 (555) 123-4567</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#features" class="text-white text-decoration-none">Features</a></li>
+            <li><a href="#report" class="text-white text-decoration-none">Reports</a></li>
+            <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+            <li><a href="#subscribe" class="text-white text-decoration-none">Subscribe</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="col-md-4 mb-4">
+          <h5>Follow Us</h5>
+          <div>
+            <a href="https://www.facebook.com/" class="text-white text-decoration-none me-3"><i
+                class="bi bi-facebook"></i> Facebook</a>
+          </div>
+          <div>
+            <a href="https://x.com/?lang=en" class="text-white text-decoration-none me-3"><i class="bi bi-twitter"></i>
+              Twitter</a>
+          </div>
+          <div>
+            <a href="https://www.instagram.com/" class="text-white text-decoration-none me-3"><i
+                class="bi bi-instagram"></i> Instagram</a>
+          </div>
+          <div>
+            <a href="https://www.linkedin.com/" class="text-white text-decoration-none me-3"><i
+                class="bi bi-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <p class="mb-0">&copy; 2024 Smart City Dashboard. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+
+  <!-- Chart.js for traffic and analytics -->
+  <script>
+    // Traffic Status Chart
+    const ctxTraffic = document.getElementById('trafficChart').getContext('2d');
+    const trafficChart = new Chart(ctxTraffic, {
+      type: 'line',
+      data: {
+        labels: ['8 AM', '9 AM', '10 AM', '11 AM', '12 PM'],
+        datasets: [{
+          label: 'Traffic Flow',
+          data: [30, 45, 20, 50, 35],
+          borderColor: '#ffffff',
+          backgroundColor: 'rgba(255, 255, 255, 0.2)',
+          fill: true,
+        }],
+      },
+      options: {
+        responsive: true,
+        animation: {
+          duration: 1500,
+        },
+      },
+    });
+
+    // Traffic Analytics Chart
+    const ctxTrafficAnalytics = document.getElementById('trafficAnalyticsChart').getContext('2d');
+    const trafficAnalyticsChart = new Chart(ctxTrafficAnalytics, {
+      type: 'bar',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [{
+          label: 'Weekly Traffic',
+          data: [120, 150, 180, 100],
+          backgroundColor: '#3498db',
+        }],
+      },
+      options: {
+        responsive: true,
+        animation: {
+          onComplete: function () {
+            this.chart.canvas.classList.add('chart-animated');
+          },
+        },
+      },
+    });
+
+    // Utilities Analytics Chart
+    const ctxUtilitiesAnalytics = document.getElementById('utilitiesAnalyticsChart').getContext('2d');
+    const utilitiesAnalyticsChart = new Chart(ctxUtilitiesAnalytics, {
+      type: 'pie',
+      data: {
+        labels: ['Water', 'Electricity', 'Gas'],
+        datasets: [{
+          data: [60, 30, 10],
+          backgroundColor: ['#1abc9c', '#f39c12', '#e74c3c'],
+        }],
+      },
+      options: {
+        responsive: true,
+        animation: {
+          onComplete: function () {
+            this.chart.canvas.classList.add('chart-animated');
+          },
+        },
+      },
+    });
+  </script>
+</body>
+
+</html>
